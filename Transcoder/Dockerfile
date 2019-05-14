@@ -25,9 +25,8 @@ RUN apk add -U \
 		binutils \
 	&& mkdir -p /opt \
 	&& cd /opt \
-	&& git clone https://github.com/UnicornTranscoder/UnicornTranscoder \
+	&& git clone https://github.com/nicko170/UnicornTranscoder \
 	&& cd UnicornTranscoder \
-  && sed -i .bak "s/eae_version.*/eae_version: 'eae-69c1de6-25',/g" config.js \
 	&& npm install \
   && /opt/UnicornTranscoder/node_modules/.bin/grunt \
   && npm install \
