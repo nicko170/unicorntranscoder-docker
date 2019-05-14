@@ -16,6 +16,7 @@ ENV PORT=3000 \
 
 COPY rootfs /
 
+
 RUN apk add -U \
 		npm \
 		git \
@@ -26,8 +27,11 @@ RUN apk add -U \
 	&& cd /opt \
 	&& git clone https://github.com/UnicornTranscoder/UnicornTranscoder \
 	&& cd UnicornTranscoder \
+  && sed -i .bak "s/eae_version.*/eae_version: 'eae-69c1de6-25',/g" config.js \
 	&& npm install \
-	&& chmod a+x /usr/local/bin/* /etc/s6.d/*/* \
+  && /opt/UnicornTranscoder/node_modules/.bin/grunt \
+  && npm install \
+	&& chmod a+x /usr/local/bin/* /etc/s6.d/*/* 
 
 EXPOSE 3000
 
