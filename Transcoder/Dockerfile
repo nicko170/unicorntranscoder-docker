@@ -14,7 +14,7 @@ ENV PORT=3000 \
   TRANSCODER_DEBUG="392df4f-2183"
 
 
-COPY rootfs /
+COPY Transcoder/rootfs /
 
 
 RUN apk add -U \
